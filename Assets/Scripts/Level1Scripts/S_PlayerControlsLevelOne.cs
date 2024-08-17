@@ -12,6 +12,9 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
 
     private bool bigEnough = false;
     public float scaleSpeed = 0.1f;
+    private float riseSpeed = 0.01f;
+
+    public GameObject fadeImage;
 
     void Start()
     {
@@ -24,7 +27,12 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
     {
         if (bigEnough)
         {
+            rb.velocity += new Vector2(0, riseSpeed);
 
+            if (transform.position.y > 6.0f)
+            {
+                fadeImage.SetActive(true);
+            }
         }
         else if (paused)
         {
@@ -92,6 +100,7 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
 
             if (transform.localScale.x > 2.0f)
             {
+                GetComponent<CircleCollider2D>().isTrigger = true;
                 bigEnough = true;
                 paused = true;
             }
