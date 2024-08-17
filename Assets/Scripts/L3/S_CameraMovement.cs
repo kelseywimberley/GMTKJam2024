@@ -6,9 +6,11 @@ public class S_CameraMovement : MonoBehaviour
 {
     public float speed = 0.001f;
 
+    public GameObject fadeImage;
+
     void Start()
     {
-        
+        fadeImage.SetActive(true);
     }
 
     void Update()

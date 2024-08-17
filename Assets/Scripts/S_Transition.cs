@@ -9,7 +9,7 @@ public class S_Transition : MonoBehaviour
     private Image image;
     private bool loadIn;
     private bool loadOut;
-    public float speed = 0.01f;
+    public float speed = 0.3f;
 
     void Start()
     {
@@ -21,19 +21,30 @@ public class S_Transition : MonoBehaviour
     {
         if (loadOut)
         {
-            float newAlpha = image.color.a + speed;
+            float newAlpha = image.color.a + (speed * 2.0f * Time.deltaTime);
             if (newAlpha > 1)
             {
                 newAlpha = 1;
                 image.color = new Vector4(0, 0, 0, newAlpha);
-                SceneManager.LoadScene("Level3"); // TODO: Level2
+                if (SceneManager.GetActiveScene().name == "Level1")
+                {
+                    SceneManager.LoadScene("Level2");
+                }
+                else if (SceneManager.GetActiveScene().name == "Level2")
+                {
+                    SceneManager.LoadScene("Level3");
+                }
+                else if (SceneManager.GetActiveScene().name == "Level3")
+                {
+                    SceneManager.LoadScene("WinScreen");
+                }
             }
             image.color = new Vector4(0, 0, 0, newAlpha);
         }
 
         if (loadIn)
         {
-            float newAlpha = image.color.a - speed;
+            float newAlpha = image.color.a - (speed * Time.deltaTime);
             if (newAlpha < 0)
             {
                 newAlpha = 0;

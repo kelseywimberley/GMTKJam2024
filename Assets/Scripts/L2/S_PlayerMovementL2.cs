@@ -13,7 +13,8 @@ public class S_PlayerMovementL2 : MonoBehaviour
     public float movementSpeed;
     private Vector2 newPos; //the position the player is heading to
     private float startingSpeed; //stores the normal speed of the player
-    private bool changeSpeed; //determins if the player should change its speed
+    private bool changeSpeed; //determines if the player should change its speed
+    public GameObject fadeImage;
 
     /*
      * Initialize private variables
@@ -23,6 +24,7 @@ public class S_PlayerMovementL2 : MonoBehaviour
         startingSpeed = movementSpeed;
         changeSpeed = false;
         newPos = transform.position;
+        fadeImage.SetActive(true);
     }
 
     /*
