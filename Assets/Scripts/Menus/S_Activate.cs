@@ -33,6 +33,15 @@ public class S_Activate : MonoBehaviour
             Menu.SetActive(!toggle);
             //have toggle = its opposite
             toggle = !toggle;
+
+            if(toggle == true)
+            {
+                Time.timeScale = 0;
+            }
+            else if(toggle == false)
+            {
+                Time.timeScale = 1;
+            }
         }
     }
 }
