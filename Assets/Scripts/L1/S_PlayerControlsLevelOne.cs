@@ -7,6 +7,7 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
     private bool paused;
 
     private Rigidbody2D rb;
+    private Animator anim;
     public float movementSpeed = 0.1f;
     public float maxSpeed = 1.5f;
 
@@ -21,6 +22,7 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
     {
         paused = false;
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         bigEnough = false;
         fadeImage.SetActive(true);
     }
@@ -55,6 +57,9 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
 
         rb.velocity = new Vector2(Mathf.Min(rb.velocity.x, maxSpeed), Mathf.Min(rb.velocity.y, maxSpeed));
         rb.velocity = new Vector2(Mathf.Max(rb.velocity.x, -maxSpeed), Mathf.Max(rb.velocity.y, -maxSpeed));
+
+        anim.SetFloat("Horizontal", Haxis);
+        anim.SetFloat("Vertical", Vaxis);
     }
 
     public bool IsPaused()
@@ -73,6 +78,8 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
                 GetComponent<CircleCollider2D>().isTrigger = true;
                 bigEnough = true;
                 paused = true;
+                anim.SetFloat("Horizontal", 0.0f);
+                anim.SetFloat("Vertical", 1.0f);
             }
         }
     }
