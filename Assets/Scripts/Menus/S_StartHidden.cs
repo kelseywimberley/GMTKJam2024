@@ -12,7 +12,7 @@ public class S_StartHidden : MonoBehaviour
     /*
      * Starts the object off as not active
      */
-    void Start()
+    void Awake()
     {
         gameObject.SetActive(false);
     }

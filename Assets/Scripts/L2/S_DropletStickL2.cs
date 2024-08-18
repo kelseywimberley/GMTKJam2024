@@ -11,6 +11,7 @@ public class S_DropletStickL2 : MonoBehaviour
 {
     [Tooltip("The gameObject that acts as the water droplet to spawn")]
     public GameObject stuckWaterDroplet;
+    
    
     void Start() { }
 
@@ -18,7 +19,7 @@ public class S_DropletStickL2 : MonoBehaviour
      * If the gameObject collides with a water droplet, have it stick to the 
      * gameObject
      */
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         //if gameObject collides with a water droplet
         if(collision.gameObject.tag == "Droplet")
@@ -35,6 +36,8 @@ public class S_DropletStickL2 : MonoBehaviour
                 //so increment its parent's droplet counter
                 gameObject.transform.parent.gameObject.GetComponent<S_DropletCounter>().IncrementDropletNum();
             }
+            //when droplets collide, play the collide sound effect
+            gameObject.GetComponent<AudioSource>().Play();
             //spawn a water droplet
             Instantiate(stuckWaterDroplet, collision.gameObject.transform.position, Quaternion.identity);
             //destroy the temp water droplet
