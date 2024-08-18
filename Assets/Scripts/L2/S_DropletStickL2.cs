@@ -18,7 +18,7 @@ public class S_DropletStickL2 : MonoBehaviour
      * If the gameObject collides with a water droplet, have it stick to the 
      * gameObject
      */
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         //if gameObject collides with a water droplet
         if(collision.gameObject.tag == "Droplet")

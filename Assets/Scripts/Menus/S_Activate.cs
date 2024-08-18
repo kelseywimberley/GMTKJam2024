@@ -34,10 +34,12 @@ public class S_Activate : MonoBehaviour
             //have toggle = its opposite
             toggle = !toggle;
 
+            //pauses game by setting timescale to 0
             if(toggle == true)
             {
                 Time.timeScale = 0;
             }
+            //unpauses game by setting timescale to 1
             else if(toggle == false)
             {
                 Time.timeScale = 1;
