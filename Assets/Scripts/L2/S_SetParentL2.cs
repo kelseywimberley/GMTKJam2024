@@ -17,10 +17,11 @@ public class S_SetParentL2 : MonoBehaviour
         //find the player in the scene
         GameObject newParent = GameObject.FindGameObjectWithTag("Player");
         //if the player was found
-        if(newParent)
+        if (newParent)
         {
             //set the gameobject's parent = to the player
             gameObject.transform.parent = newParent.transform;
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
