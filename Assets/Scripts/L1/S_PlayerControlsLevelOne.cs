@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class S_PlayerControlsLevelOne : MonoBehaviour
@@ -17,6 +18,10 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
     public float riseSpeed = 0.1f;
 
     public GameObject fadeImage;
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI pointsText;
+    private float timer;
+    private int points;
 
     void Start()
     {
@@ -25,6 +30,8 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
         anim = GetComponent<Animator>();
         bigEnough = false;
         fadeImage.SetActive(true);
+        timer = 0.0f;
+        points = 500;
     }
 
     void Update()
@@ -45,6 +52,49 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
         else
         {
             Movement();
+
+            timer += Time.deltaTime;
+            int seconds = (int)timer;
+            string sec = "" + seconds;
+            if (seconds < 10)
+            {
+                sec = "0" + seconds;
+            }
+
+            int miliseconds = (int)(timer * 100) - seconds * 100;
+            string mil = "" + miliseconds;
+            if (miliseconds < 10)
+            {
+                mil = "0" + miliseconds;
+            }
+
+            timeText.text = sec + ":" + mil;
+
+            if (timer > 50.0f)
+            {
+                pointsText.text = "0";
+                points = 0;
+            }
+            else if (timer > 40.0f)
+            {
+                pointsText.text = "100";
+                points = 100;
+            }
+            else if (timer > 30.0f)
+            {
+                pointsText.text = "200";
+                points = 200;
+            }
+            else if (timer > 20.0f)
+            {
+                pointsText.text = "300";
+                points = 300;
+            }
+            else if (timer > 10.0f)
+            {
+                pointsText.text = "400";
+                points = 400;
+            }
         }
     }
 
@@ -80,6 +130,7 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
                 paused = true;
                 anim.SetFloat("Horizontal", 0.0f);
                 anim.SetFloat("Vertical", 1.0f);
+                PlayerPrefs.SetInt("Level1Points", points);
             }
         }
     }
