@@ -21,8 +21,31 @@ public class S_NPCMovement : MonoBehaviour
     void Start()
     {
         newPosition = transform.position;
-        timer = 1.0f * Time.time;
+        timer = 1.0f + Time.time;
         direction = 0;
+    }
+
+    /*
+     * if the NPC hits a wall, have it go the opposite direction
+     */
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if NPC hits a wall
+        if(collision.gameObject.tag == "Wall")
+        {
+            //and it was going left
+            if(direction == 0)
+            {
+                //have NPC go right
+                newPosition.x += 1;
+            }
+            //if it was going right
+            else if(direction == 1)
+            {
+                //have NPC go left
+                newPosition.x -= 1;
+            }
+        }
     }
 
     /*
@@ -47,10 +70,16 @@ public class S_NPCMovement : MonoBehaviour
                 newPosition.x += 1;
             }
             //update timer to the next time check
-            timer = 1.0f * Time.time;
+            timer = 1.0f + Time.time;
         }
+
+        //clamps the gameObject to the camera boarder
+        Vector3 p = Camera.main.WorldToViewportPoint(newPosition);
+        p.x = Mathf.Clamp(p.x, 0, 1);
+        p.y = Mathf.Clamp(p.y, 0, 1);
+
         //have NPC move to the new position
-        transform.position = Vector2.MoveTowards(transform.position, newPosition, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, Camera.main.ViewportToWorldPoint(p), speed * Time.deltaTime);
     }
 
     /*

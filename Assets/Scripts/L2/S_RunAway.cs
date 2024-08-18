@@ -13,29 +13,35 @@ public class S_RunAway : MonoBehaviour
     public float distance;
     [Tooltip("How fast the gameObject can move")]
     public float speed;
-    private GameObject player; //stores the player's data
+    private GameObject[] player; //stores the player's data
 
-    /*
-     * Initialize private variables
-     */
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
+    void Start() { }
 
    /*
-    * Has the gameObject move away from the player if the player is too close
+    * Has the gameObject move away from the player if the player tagged game object is too close
     */
     void Update()
     {
-        //if player is in the scene
-        if (player)
+        //find all of the gameobjects that have the player tag
+        player = GameObject.FindGameObjectsWithTag("Player");
+        //go through them the check their distance
+        for (int i = 0; i < player.Length; i++)
         {
-            //check to see if the player is close enough to the gameObject
-            if (Vector2.Distance(player.transform.position, transform.position) <= distance)
+            //if player is in the scene
+            if (player[i])
             {
-                //if so, then have the gameObject run away. This occures by having speed be negative
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -speed * Time.deltaTime);
+                //check to see if the player is close enough to the gameObject
+                if (Vector2.Distance(player[i].transform.position, transform.position) <= distance)
+                {
+                    //if so, then have the gameObject run away. This occures by having speed be negative
+                    transform.position = Vector2.MoveTowards(transform.position, player[i].transform.position, -speed * Time.deltaTime);
+
+                    //clamps the gameObject to the camera boarder
+                    Vector3 p = Camera.main.WorldToViewportPoint(transform.position);
+                    p.x = Mathf.Clamp(p.x, 0, 1);
+                    p.y = Mathf.Clamp(p.y, 0, 1);
+                    transform.position = Camera.main.ViewportToWorldPoint(p);
+                }
             }
         }
     }

@@ -77,8 +77,13 @@ public class S_PlayerMovementL2 : MonoBehaviour
             newPos.y = transform.position.y;
         }
 
+        //clamps the player to the camera boarder
+        Vector3 p = Camera.main.WorldToViewportPoint(newPos);
+        p.x = Mathf.Clamp(p.x, 0, 1);
+        p.y = Mathf.Clamp(p.y, 0, 1);
+
         //have the player move to the new position
-        transform.position = Vector2.MoveTowards(transform.position, newPos, movementSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, Camera.main.ViewportToWorldPoint(p), movementSpeed * Time.deltaTime);
     }
 
     /*
