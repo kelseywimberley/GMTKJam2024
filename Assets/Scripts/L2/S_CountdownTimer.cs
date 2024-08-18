@@ -39,6 +39,15 @@ public class S_CountdownTimer : MonoBehaviour
             {
                 //set it equal to zero
                 maxTime = 0;
+                //when timer is 0, go to level 3
+                SceneManager.LoadScene("Level3");
+            }
+
+            //when timer is almost over
+            if(maxTime <= 10)
+            {
+                //have its color change
+                gameObject.GetComponent<TextMeshProUGUI>().color = Color.red;
             }
             //update the countdown text
             gameObject.GetComponent<TextMeshProUGUI>().SetText(maxTime.ToString());
