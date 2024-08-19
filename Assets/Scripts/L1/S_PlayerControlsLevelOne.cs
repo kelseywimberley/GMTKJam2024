@@ -34,6 +34,11 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
         points = 500;
     }
 
+    public float GetScore()
+    {
+        return float.Parse(pointsText.text);
+    }
+
     void Update()
     {
         if (bigEnough)
