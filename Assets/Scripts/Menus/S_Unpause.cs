@@ -23,6 +23,7 @@ public class S_Unpause : MonoBehaviour
      */
     void UnPause()
     {
+        GameObject.FindGameObjectWithTag("Click").GetComponent<AudioSource>().Play();
         Time.timeScale = 1;
         gameObject.transform.parent.gameObject.SetActive(false);
     }

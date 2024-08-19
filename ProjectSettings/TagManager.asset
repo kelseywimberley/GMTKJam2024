@@ -7,6 +7,7 @@ TagManager:
   - Droplet
   - Wall
   - Data
+  - Click
   layers:
   - Default
   - TransparentFX
