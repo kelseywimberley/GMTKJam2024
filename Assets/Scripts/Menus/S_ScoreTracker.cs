@@ -8,7 +8,7 @@ public class S_ScoreTracker : MonoBehaviour
     // Start is called before the first frame update
     private float Level1Score;
     private float Level2Score;
-    private float Level3Score;
+    private int Level3Score;
     void Start()
     {
         Level1Score = 0;
@@ -35,7 +35,7 @@ public class S_ScoreTracker : MonoBehaviour
         }
         else if(SceneManager.GetActiveScene().name == "Level3")
         {
-            Level3Score = GameObject.FindGameObjectWithTag("Player").transform.localScale.x;
+            Level3Score = (int)GameObject.FindGameObjectWithTag("Player").transform.localScale.x * 100;
         }
     }
 }

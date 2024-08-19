@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class S_PlayerControlsLevelThree : MonoBehaviour
@@ -16,10 +17,13 @@ public class S_PlayerControlsLevelThree : MonoBehaviour
     public float growTimerMax = 0.5f;
     public float growAmount = 0.25f;
 
+    public TextMeshProUGUI sizeText;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sizeText.text = "Size: " + transform.localScale.x + "mm";
     }
 
     void Update()
@@ -62,6 +66,8 @@ public class S_PlayerControlsLevelThree : MonoBehaviour
         {
             grow = false;
             growTimer = 0.0f;
+            int scaleTimes10 = (int)(10 * transform.localScale.x);
+            sizeText.text = "Size: " + (float)(scaleTimes10 / 10.0f) + "mm";
         }
         else
         {
