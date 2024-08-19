@@ -27,6 +27,7 @@ public class S_NextScene : MonoBehaviour
      */
     void NextScene()
     {
+        GameObject.FindGameObjectWithTag("Click").GetComponent<AudioSource>().Play();
         SceneManager.LoadScene(sceneName);
     }
 

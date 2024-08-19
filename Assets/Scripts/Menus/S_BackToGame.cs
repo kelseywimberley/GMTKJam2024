@@ -24,6 +24,7 @@ public class S_BackToGame : MonoBehaviour
      */
     void BackToGame()
     {
+        GameObject.FindGameObjectWithTag("Click").GetComponent<AudioSource>().Play();
         SceneManager.LoadScene(GameObject.FindGameObjectWithTag("Data").GetComponent<S_StoreLevelData>().levelName);
     }
 
