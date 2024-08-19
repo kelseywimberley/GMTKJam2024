@@ -95,7 +95,7 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
                 pointsText.text = "300";
                 points = 300;
             }
-            else if (timer > 10.0f)
+            else if (timer > 13.0f)
             {
                 pointsText.text = "400";
                 points = 400;
