@@ -1951,6 +1951,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &980451900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2136347612692633025, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_Name
+      value: ClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163620672903851020, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.039106
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163620672903851020, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1072536
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163620672903851020, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.3529935
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163620672903851020, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163620672903851020, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163620672903851020, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163620672903851020, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163620672903851020, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163620672903851020, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163620672903851020, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7df22901ddc04042989c00aea49f6e1, type: 3}
 --- !u!1001 &1015305035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2437,6 +2494,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1143777461}
     m_Modifications:
+    - target: {fileID: 3617982581227168640, guid: dff4abe06686b594fa50132efa934f1b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617982581227168640, guid: dff4abe06686b594fa50132efa934f1b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -174
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404308802608473171, guid: dff4abe06686b594fa50132efa934f1b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404308802608473171, guid: dff4abe06686b594fa50132efa934f1b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -115
+      objectReference: {fileID: 0}
     - target: {fileID: 6963801901109194827, guid: dff4abe06686b594fa50132efa934f1b, type: 3}
       propertyPath: m_Name
       value: Pause Screen
@@ -2503,7 +2576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7696477890572834599, guid: dff4abe06686b594fa50132efa934f1b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -27
+      value: -46
       objectReference: {fileID: 0}
     - target: {fileID: 7696477890572834599, guid: dff4abe06686b594fa50132efa934f1b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4406,3 +4479,4 @@ SceneRoots:
   - {fileID: 317885543}
   - {fileID: 1015305035}
   - {fileID: 337102867}
+  - {fileID: 980451900}
