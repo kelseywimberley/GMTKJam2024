@@ -27,7 +27,7 @@ public class S_Activate : MonoBehaviour
     void Update()
     {
         //if the cancel button is pressed
-        if(Input.GetButtonDown("Cancel"))
+        if(Input.GetButtonDown("Cancel") && !GameObject.Find("Fade"))
         {
             //set the menu's activate status to the opposite of toggle
             Menu.SetActive(!toggle);
