@@ -14,6 +14,7 @@ public class S_NPCMovement : MonoBehaviour
     private Vector2 newPosition; //the new position the NPC needs to move to
     private float timer; //determins when the player should move in a different direction
     private int direction; //determins which direction the NPC should move in
+    private Animator anim;
 
     /*
      * Initialie private variables
@@ -23,6 +24,7 @@ public class S_NPCMovement : MonoBehaviour
         newPosition = transform.position;
         timer = 1.0f + Time.time;
         direction = 0;
+        anim = GetComponent<Animator>();
     }
 
     /*
@@ -38,12 +40,14 @@ public class S_NPCMovement : MonoBehaviour
             {
                 //have NPC go right
                 newPosition.x += 1;
+                anim.SetFloat("Horizontal", 0.0f);
             }
             //if it was going right
             else if(direction == 1)
             {
                 //have NPC go left
                 newPosition.x -= 1;
+                anim.SetFloat("Horizontal", 0.0f);
             }
         }
     }
@@ -63,11 +67,13 @@ public class S_NPCMovement : MonoBehaviour
             if (direction == 0)
             {
                 newPosition.x -= 1;
+                anim.SetFloat("Horizontal", -1.0f);
             }
             //If direction is 1, then have the NPC go right
             else if (direction == 1)
             {
                 newPosition.x += 1;
+                anim.SetFloat("Horizontal", 1.0f);
             }
             //update timer to the next time check
             timer = 1.0f + Time.time;
