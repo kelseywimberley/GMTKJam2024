@@ -7710,6 +7710,10 @@ PrefabInstance:
       value: BackgroundMusic
       objectReference: {fileID: 0}
     - target: {fileID: 1734314419962961893, guid: ea07f15095a7c7c44a3ab41d8eb8a9d3, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734314419962961893, guid: ea07f15095a7c7c44a3ab41d8eb8a9d3, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 199e53ee4db9ad1429e88b79c1dbe343, type: 3}
