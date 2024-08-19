@@ -7,7 +7,14 @@ public class S_PlayerControlsLevelThree : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
 
-    public float movementSpeed = 1.0f;
+    public float movementSpeed = 1.25f;
+    public float speedLoss = 0.1f;
+    public float lowestMovementSpeed = 0.3f;
+
+    private bool grow;
+    private float growTimer;
+    public float growTimerMax = 0.5f;
+    public float growAmount = 0.25f;
 
     void Start()
     {
@@ -18,6 +25,11 @@ public class S_PlayerControlsLevelThree : MonoBehaviour
     void Update()
     {
         Movement();
+
+        if (grow)
+        {
+            Grow();
+        }
     }
 
     private void Movement()
@@ -40,5 +52,31 @@ public class S_PlayerControlsLevelThree : MonoBehaviour
         }
 
         anim.SetFloat("Horizontal", Haxis);
+    }
+
+    private void Grow()
+    {
+        growTimer += Time.deltaTime;
+
+        if (growTimer > growTimerMax)
+        {
+            grow = false;
+            growTimer = 0.0f;
+        }
+        else
+        {
+            transform.localScale += new Vector3(growAmount * Time.deltaTime, growAmount * Time.deltaTime, 0);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Droplet")
+        {
+            Destroy(collision.gameObject);
+            grow = true;
+            movementSpeed -= speedLoss;
+            movementSpeed = Mathf.Max(movementSpeed, lowestMovementSpeed);
+        }
     }
 }
