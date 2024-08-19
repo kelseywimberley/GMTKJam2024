@@ -79,6 +79,8 @@ public class S_PlayerControlsLevelThree : MonoBehaviour
     {
         if (collision.gameObject.tag == "Droplet")
         {
+            //when droplets collide, play the collide sound effect
+            gameObject.GetComponent<AudioSource>().Play();
             Destroy(collision.gameObject);
             grow = true;
             movementSpeed -= speedLoss;
