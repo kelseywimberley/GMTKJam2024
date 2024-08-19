@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class S_CameraMovement : MonoBehaviour
 {
-    public float speed = 0.001f;
+    public float speed = 0.003f;
 
     public GameObject fadeImage;
 
@@ -15,6 +15,9 @@ public class S_CameraMovement : MonoBehaviour
 
     void Update()
     {
-        transform.position -= new Vector3(0, speed, 0);
+        if(Time.timeScale > 0)
+        {
+            transform.position -= new Vector3(0, speed, 0);
+        }
     }
 }
