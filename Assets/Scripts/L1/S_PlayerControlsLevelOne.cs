@@ -61,41 +61,29 @@ public class S_PlayerControlsLevelOne : MonoBehaviour
             timer += Time.deltaTime;
             int seconds = (int)timer;
             string sec = "" + seconds;
-            if (seconds < 10)
-            {
-                sec = "0" + seconds;
-            }
+            timeText.text = sec;
 
-            int miliseconds = (int)(timer * 100) - seconds * 100;
-            string mil = "" + miliseconds;
-            if (miliseconds < 10)
-            {
-                mil = "0" + miliseconds;
-            }
-
-            timeText.text = sec + ":" + mil;
-
-            if (timer > 50.0f)
+            if (timer > 75.0f)
             {
                 pointsText.text = "0";
                 points = 0;
             }
-            else if (timer > 40.0f)
+            else if (timer > 60.0f)
             {
                 pointsText.text = "100";
                 points = 100;
             }
-            else if (timer > 30.0f)
+            else if (timer > 45.0f)
             {
                 pointsText.text = "200";
                 points = 200;
             }
-            else if (timer > 20.0f)
+            else if (timer > 30.0f)
             {
                 pointsText.text = "300";
                 points = 300;
             }
-            else if (timer > 13.0f)
+            else if (timer > 15.0f)
             {
                 pointsText.text = "400";
                 points = 400;
